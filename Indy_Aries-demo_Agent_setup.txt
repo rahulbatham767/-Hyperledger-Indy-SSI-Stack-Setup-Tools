@@ -1,0 +1,120 @@
+
+### 🔧 Indy-Aries Agent Setup for College Demo (Using VON Network Genesis)
+
+📝 **Replace the values accordingly**:
+
+* `10.210.13.22` → Your VON Network Host IP (can be VM IP or Docker Host IP)
+* `172.17.0.1` or `172.18.0.1` → Your local machine's IP (depends on the network interface Docker uses)
+
+---
+
+## 🧑‍🏫 Agent 1: **Student Wallet  (virat)**
+
+```
+cd acapy/scripts
+
+PORTS="8000 8001" ./run_docker start \
+-l virat \
+-it http 0.0.0.0 8000 \
+-ot http \
+--admin 0.0.0.0 8001 \
+--admin-insecure-mode \
+--genesis-url http://10.210.13.22:9000/genesis \
+-e http://172.17.0.1:8000 \
+--wallet-type askar \
+--wallet-name virat_wallet \
+--wallet-key virat_wallet \
+--debug-webhook \
+--monitor-ping \
+--log-level info \
+--auto-provision \
+--trace-target log \
+--auto-ping-connection \
+--seed virat000000000000000000000000000 \
+--auto-accept-invites \
+--auto-accept-requests \
+--auto-respond-credential-proposal \
+--auto-respond-credential-offer \
+--auto-respond-credential-request \
+--auto-store-credential \
+--requests-through-public-did \
+--public-invites \
+--emit-new-didcomm-prefix \
+--auto-respond-presentation-proposal \
+--auto-store-credential \
+&
+```
+
+---
+
+## 👩‍🎓 Agent 2: **Verifier Agent (iSocial)**
+
+```
+PORTS="8030 8031" ./run_docker start \
+-l iSocial \
+-it http 0.0.0.0 8030 \
+-ot http \
+--admin 0.0.0.0 8031 \
+--admin-insecure-mode \
+-e http://172.18.0.1:8030 \
+--genesis-url http://10.210.13.22:9000/genesis \
+--wallet-type askar \
+--wallet-name isocial_wallet \
+--wallet-key isocial_wallet \
+--log-level info \
+--auto-provision \
+--auto-ping-connection \
+--seed isocial0000000000000000000000000 \
+--auto-accept-invites \
+--auto-respond-credential-proposal \
+--auto-respond-credential-offer \
+--auto-respond-credential-request \
+--auto-store-credential \
+--auto-accept-requests \
+--requests-through-public-did \
+--public-invites \
+--emit-new-didcomm-prefix \
+--auto-respond-presentation-proposal \
+--auto-respond-presentation-request \
+--auto-store-credential \
+--auto-verify-presentation \
+&
+```
+
+---
+
+## 👨‍💼 Agent 3: ** Organization Agent (CDAC)**
+
+```
+PORTS="8020 8021" ./run_docker start \
+-l CDAC \
+-it http 0.0.0.0 8020 \
+-ot http \
+--admin 0.0.0.0 8021 \
+--admin-insecure-mode \
+-e http://172.18.0.1:8020 \
+--genesis-url http://10.210.13.22:9000/genesis \
+--wallet-type askar \
+--wallet-name cdac_wallet \
+--wallet-key cdac_wallet \
+--log-level info \
+--auto-provision \
+--auto-ping-connection \
+--emit-new-didcomm-prefix \
+--seed cdac0000000000000000000000000000 \
+--auto-accept-invites \
+--auto-accept-requests \
+--auto-respond-credential-proposal \
+--auto-respond-credential-offer \
+--auto-respond-credential-request \
+--auto-store-credential \
+--requests-through-public-did \
+--public-invites \
+&
+```
+
+---
+
+✅ Now your agents (Issuer = CDAC, Holder = VIRAT, Verifier = iSocial) are up and running, connected to the VON Network.
+Use their Admin APIs to create schemas, issue credentials, request proofs, etc.
+

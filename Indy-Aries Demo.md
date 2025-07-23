@@ -1,59 +1,108 @@
-Here is the GitHub-friendly **Markdown** version styled for clear documentation:
 
-````markdown
+
 # 🧪 Indy-Aries Demo: College & Organization Identity Use Case
 
-## 🛠️ Prerequisites
+Welcome to the **Indy-Aries Demo**!  
+This project simulates a **real-world credential flow** involving three types of decentralized identity agents:
 
-Before running the demo, make sure the following are set up:
+- 🏫 **CDAC** – *Issuer* (College)
+- 👤 **Virat** – *Holder* (Student)
+- 🏢 **iSocial** – *Verifier* (Organization)
 
-- ✅ **Indy Ledger**
-- ✅ **Aries Agents** for:
-  - **CDAC** – Issuer
-  - **iSocial** – Verifier
-  - **Virat** – Holder
-
-> If not set up, follow these guides:
-
-- 📄 [Containerized Indy Ledger and Aries Agent Setup (No-Code Approach)](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Containerized%20Indy%20Ledger%20and%20Aries%20Agent%20Setup(No-Code%20Approach).pdf)
-- 📄 [Indy-Aries Demo Agent Setup Instructions](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Indy_Aries-demo_Agent_setup.txt)
+Explore how Self-Sovereign Identity (SSI) works using Hyperledger Indy and Aries in this easy-to-run demo.
 
 ---
 
-## 📥 Download the Demo Frontend
+## 🛠️ Prerequisites
 
-Pull the pre-built Docker image for the Aries demo frontend:
+Before getting started, make sure the following components are set up and running:
+
+- ✅ **Indy Ledger**
+- ✅ **Aries Agents**
+  - `CDAC` (Issuer)
+  - `Virat` (Holder)
+  - `iSocial` (Verifier)
+
+> **Need help with setup?**
+> - 📘 [No-Code Ledger & Agent Setup (PDF)](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Containerized%20Indy%20Ledger%20and%20Aries%20Agent%20Setup(No-Code%20Approach).pdf)
+> - 📘 [Agent Setup Instructions (Text)](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Indy_Aries-demo_Agent_setup.txt)
+
+---
+
+## 📦 Download the Demo Frontend
+
+Pull the pre-built frontend Docker image:
 
 ```bash
-docker pull rahulbatham/aries-agent
+docker pull rahulbatham/aries-agent:latest
 ````
 
 ---
 
-## 🚀 Run the Demo Frontend
+## 🚀 Run the Frontend UI
 
-Run the container with environment variables for the Holder, Issuer, and Verifier agents:
+Run the container with appropriate environment variables to connect to your agents:
 
 ```bash
 docker run -p 3000:3000 \
-  -e NEXT_PUBLIC_HOLDER_ENDPOINT=http://10.210.13.22:8001 \
-  -e NEXT_PUBLIC_ISSUER_ENDPOINT=http://10.210.13.22:8021 \
-  -e NEXT_PUBLIC_VERIFIER_ENDPOINT=http://10.210.13.22:8031 \
-  -e NEXT_PUBLIC_HOLDER_SOCKET=ws://10.210.13.22:8001/ws \
-  -e NEXT_PUBLIC_ISSUER_SOCKET=ws://10.210.13.22:8021/ws \
-  -e NEXT_PUBLIC_VERIFIER_SOCKET=ws://10.210.13.22:8031/ws \
+  -e NEXT_PUBLIC_HOLDER_ENDPOINT=http://<YOUR-IP>:8001 \
+  -e NEXT_PUBLIC_ISSUER_ENDPOINT=http://<YOUR-IP>:8021 \
+  -e NEXT_PUBLIC_VERIFIER_ENDPOINT=http://<YOUR-IP>:8031 \
+  -e NEXT_PUBLIC_HOLDER_SOCKET=ws://<YOUR-IP>:8001/ws \
+  -e NEXT_PUBLIC_ISSUER_SOCKET=ws://<YOUR-IP>:8021/ws \
+  -e NEXT_PUBLIC_VERIFIER_SOCKET=ws://<YOUR-IP>:8031/ws \
   rahulbatham/aries-agent:latest
 ```
 
-> 🔁 **Note:** Replace `10.210.13.22` with your machine's IP address if it's different.
+> 💡 **Tip:**
+> Replace `<YOUR-IP>` with your actual host machine’s IP address.
 
 ---
 
-## ✅ Ready to Go!
+## 🌐 Access the Demo
 
-Access the demo UI at:
-[http://localhost:3000](http://localhost:3000)
+Once the container is running, open your browser and go to:
 
-This frontend enables interaction between the issuer, holder, and verifier agents in a real-world credential flow simulation.
+👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🔁 What Can You Do?
+
+With the frontend UI, you can:
+
+* 🔐 **Issue** credentials from the college (CDAC)
+* 📱 **Store** credentials with the student (Virat)
+* ✅ **Verify** credentials by the organization (iSocial)
+* 🧠 **Understand** how decentralized identity flows work in practice
+
+---
+
+## 🧩 System Overview
+
+```plaintext
++---------+         +---------+         +-----------+
+|  CDAC   | ─────▶  |  Virat  | ─────▶  |  iSocial  |
+| Issuer  |         | Holder  |         | Verifier  |
++---------+         +---------+         +-----------+
+```
+
+---
+
+## ❓ Need Help?
+
+If you run into issues:
+
+* Check the linked setup guides
+* Or open an issue on this repository
+
+---
+
+## 🚀 Happy Experimenting!
+
+Explore decentralized identity with Hyperledger Indy & Aries – no coding required!
+Enjoy building the future of trust and identity. 🎉
+
+
 
 

@@ -1,16 +1,26 @@
 
-### 🔧 Indy-Aries Agent Setup for College Demo (Using VON Network Genesis)
+# 🔧 Indy-Aries Agent Setup for College Demo (Using VON Network Genesis)
 
-📝 **Replace the values accordingly**:
+This guide helps you spin up three Aries Cloud Agent Python (ACA-Py) agents for a college-based SSI demo:
 
-* `10.210.13.22` → Your VON Network Host IP (can be VM IP or Docker Host IP)
-* `172.17.0.1` or `172.18.0.1` → Your local machine's IP (depends on the network interface Docker uses)
+- 🧑‍🏫 **CDAC** – Issuer (Organization)
+- 👨‍🎓 **Virat** – Holder (Student Wallet)
+- 👩‍💼 **iSocial** – Verifier (Company/Organization)
+
+Each agent connects to a **VON Network Genesis file**, enabling decentralized credential issuance and verification.
 
 ---
 
-## 🧑‍🏫 Agent 1: **Student Wallet  (virat)**
+## 📝 Replace the Following Values:
 
-```
+- `10.210.13.22` → Your **VON Network Host IP** (VM/Docker host)
+- `172.17.0.1` or `172.18.0.1` → Your **Localhost IP** for Docker bridge interface
+
+---
+
+## 👨‍🎓 Agent 1: Student Wallet (**virat**)
+
+```bash
 cd acapy/scripts
 
 PORTS="8000 8001" ./run_docker start \
@@ -43,13 +53,13 @@ PORTS="8000 8001" ./run_docker start \
 --auto-respond-presentation-proposal \
 --auto-store-credential \
 &
-```
+````
 
 ---
 
-## 👩‍🎓 Agent 2: **Verifier Agent (iSocial)**
+## 🧪 Agent 2: Verifier Agent (**iSocial**)
 
-```
+```bash
 PORTS="8030 8031" ./run_docker start \
 -l iSocial \
 -it http 0.0.0.0 8030 \
@@ -83,9 +93,9 @@ PORTS="8030 8031" ./run_docker start \
 
 ---
 
-## 👨‍💼 Agent 3: ** Organization Agent (CDAC)**
+## 🏫 Agent 3: Issuer Agent (**CDAC**)
 
-```
+```bash
 PORTS="8020 8021" ./run_docker start \
 -l CDAC \
 -it http 0.0.0.0 8020 \
@@ -115,6 +125,28 @@ PORTS="8020 8021" ./run_docker start \
 
 ---
 
-✅ Now your agents (Issuer = CDAC, Holder = VIRAT, Verifier = iSocial) are up and running, connected to the VON Network.
-Use their Admin APIs to create schemas, issue credentials, request proofs, etc.
+## ✅ You're All Set!
+
+All three agents are now running and connected to the **VON Network**.
+
+### Use their respective **Admin APIs** to:
+
+* 🏗️ Create schemas and credential definitions
+* 🪪 Issue credentials from CDAC to Virat
+* 🧾 Request proof from Virat using iSocial
+* 🔐 Explore SSI workflows with full control
+
+---
+
+### 📘 Resources
+
+* [Aries Cloud Agent Python (ACA-Py)](https://github.com/hyperledger/aries-cloudagent-python)
+* [VON Network Info](https://vonx.io/)
+* [Aries RFCs](https://github.com/hyperledger/aries-rfcs)
+
+
+
+Happy experimenting with decentralized identity! 🚀
+
+# Created by Rahul Batham 
 

@@ -34,10 +34,8 @@ cd indyscan
 Start using Docker Compose:
 
 ```bash
-cd docker
-cp .env-example .env
-cd ..
-docker-compose -f docker/docker-compose.yml up --build
+cd start
+docker-compose up --build
 ```
 
 Access the UI:
@@ -86,7 +84,7 @@ Paste the full content of your **local ledger's genesis file** here. Make sure t
 Rebuild and run IndyScan to apply the new genesis file:
 
 ```bash
-cd indyscan/docker
+cd indyscan/start
 docker-compose down
 docker-compose up --build
 ```

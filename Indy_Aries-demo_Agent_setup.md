@@ -86,8 +86,6 @@ PORTS="8030 8031" ./run_docker start \
 --emit-new-didcomm-prefix \
 --auto-respond-presentation-proposal \
 --auto-respond-presentation-request \
---auto-store-credential \
---auto-verify-presentation \
 &
 ```
 
@@ -149,5 +147,6 @@ All three agents are now running and connected to the **VON Network**.
 Happy experimenting with decentralized identity! 🚀
 
 # Created by Rahul Batham 
+
 
 

@@ -30,7 +30,7 @@ PORTS="8000 8001" ./run_docker start \
 --admin 0.0.0.0 8001 \
 --admin-insecure-mode \
 --genesis-url http://10.210.13.22:9000/genesis \
--e http://172.17.0.1:8000 \
+-e http://172.23.77.31:8000 \
 --wallet-type askar \
 --wallet-name virat_wallet \
 --wallet-key virat_wallet \
@@ -66,7 +66,7 @@ PORTS="8030 8031" ./run_docker start \
 -ot http \
 --admin 0.0.0.0 8031 \
 --admin-insecure-mode \
--e http://172.18.0.1:8030 \
+-e http://172.23.77.31:8030 \
 --genesis-url http://10.210.13.22:9000/genesis \
 --wallet-type askar \
 --wallet-name isocial_wallet \
@@ -102,7 +102,7 @@ PORTS="8020 8021" ./run_docker start \
 -ot http \
 --admin 0.0.0.0 8021 \
 --admin-insecure-mode \
--e http://172.18.0.1:8020 \
+-e http://172.23.77.31:8020 \
 --genesis-url http://10.210.13.22:9000/genesis \
 --wallet-type askar \
 --wallet-name cdac_wallet \
@@ -149,4 +149,5 @@ All three agents are now running and connected to the **VON Network**.
 Happy experimenting with decentralized identity! 🚀
 
 # Created by Rahul Batham 
+
 

@@ -1,28 +1,41 @@
 
+
 # 🔧 Indy-Aries Agent Setup for College Demo (Using VON Network Genesis)
 
 This guide helps you spin up three Aries Cloud Agent Python (ACA-Py) agents for a college-based SSI demo:
 
-- 🧑‍🏫 **CDAC** – Issuer (Organization)
-- 👨‍🎓 **Virat** – Holder (Student Wallet)
-- 👩‍💼 **iSocial** – Verifier (Company/Organization)
+* 🧑‍🏫 **CDAC** – Issuer (Organization)
+* 👨‍🎓 **Virat** – Holder (Student Wallet)
+* 👩‍💼 **iSocial** – Verifier (Company/Organization)
 
 Each agent connects to a **VON Network Genesis file**, enabling decentralized credential issuance and verification.
 
 ---
 
+## 🛠️ Step 0: Clone and Prepare Aries Cloud Agent Python (ACA-Py)
+
+First, clone the ACA-Py repository and navigate to the scripts directory:
+
+```bash
+git clone https://github.com/hyperledger/aries-cloudagent-python.git acapy
+cd acapy/scripts
+chmod +x run_docker
+```
+
+> The `run_docker` script helps you quickly start ACA-Py agents inside Docker containers with pre-configured commands.
+
+---
+
 ## 📝 Replace the Following Values:
 
-- `10.210.13.22` → Your **VON Network Host IP** (VM/Docker host)
-- `172.17.0.1` or `172.18.0.1` → Your **Localhost IP** for Docker bridge interface
+* `10.210.13.22` → Your **VON Network Host IP** (VM/Docker host)
+* `172.17.0.1` or `172.18.0.1` → Your **Localhost IP** for Docker bridge interface
 
 ---
 
 ## 👨‍🎓 Agent 1: Student Wallet (**virat**)
 
 ```bash
-cd acapy/scripts
-
 PORTS="8000 8001" ./run_docker start \
 -l virat \
 -it http 0.0.0.0 8000 \
@@ -53,7 +66,7 @@ PORTS="8000 8001" ./run_docker start \
 --auto-respond-presentation-proposal \
 --auto-store-credential \
 &
-````
+```
 
 ---
 
@@ -142,11 +155,9 @@ All three agents are now running and connected to the **VON Network**.
 * [VON Network Info](https://vonx.io/)
 * [Aries RFCs](https://github.com/hyperledger/aries-rfcs)
 
+---
+
+# Created by Rahul Batham
 
 
-Happy experimenting with decentralized identity! 🚀
-
-# Created by Rahul Batham 
-
-
-
+If you want, I can help with further steps, like how to interact with the agents’ admin APIs or how to issue your first credential!

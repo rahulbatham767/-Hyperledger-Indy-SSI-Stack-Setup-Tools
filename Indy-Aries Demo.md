@@ -25,7 +25,7 @@ Before getting started, make sure the following components are set up and runnin
 
 > **Need help with setup?**
 > - 📘 [No-Code Ledger & Agent Setup (PDF)](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Containerized%20Indy%20Ledger%20and%20Aries%20Agent%20Setup(No-Code%20Approach).pdf)
-> - 📘 [Agent Setup Instructions (Text)](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Indy_Aries-demo_Agent_setup.txt)
+> - 📘 [Agent Setup Instructions (MD)](https://github.com/rahulbatham767/-Hyperledger-Indy-SSI-Stack-Setup-Tools/blob/main/Indy_Aries-demo_Agent_setup.md)
 
 ---
 

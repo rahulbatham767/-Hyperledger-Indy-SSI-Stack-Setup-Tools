@@ -53,8 +53,8 @@ pip install -r requirements.txt
 If your Indy ledger stores the genesis file locally, you can expose it over HTTP:
 
 ```bash
-cp /var/lib/indy/sandbox/pool_transactions_genesis /var/lib/indy/sandbox/genesis.txt
-python3 -m http.server 8090 --directory /var/lib/indy/sandbox/
+cp /var/lib/indy/rahul/pool_transactions_genesis /var/lib/indy/rahul/genesis.txt
+python3 -m http.server 8090 --directory /var/lib/indy/rahul/
 ```
 
 Then your genesis URL will be:

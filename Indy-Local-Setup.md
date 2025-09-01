@@ -214,7 +214,7 @@ sudo start_indy_node Node4 0.0.0.0 9707 0.0.0.0 9708 &
 
 ## 16.	Check Node Logs:
 ```bash 
-cd /var/log/indy/rahul
+cd /var/log/indy/sandbox
 tail -f Node1.log
 ```
 **Explanation**: Checking the log files helps you verify that the nodes are running correctly and identify any issues.

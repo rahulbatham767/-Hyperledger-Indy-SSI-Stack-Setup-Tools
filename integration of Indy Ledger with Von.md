@@ -71,14 +71,14 @@ http://localhost:8090/genesis.txt
 
 ```bash
 export PORT=9000
-export GENESIS_URL=http://<your-ip>:8090/pool_transactions_genesis.txt
+export GENESIS_URL=http://<your-ip>:8090/genesis.txt
 python3 -m server.server
 ```
 
 ### 🔹 Option 2: Run with Inline Environment Variables
 
 ```bash
-GENESIS_URL=http://localhost:8090/pool_transactions_genesis.txt \
+GENESIS_URL=http://localhost:8090/genesis.txt \
 PORT=9000 \
 python3 -m server.server
 ```
@@ -92,7 +92,7 @@ To enable DID registration on the ledger, run:
 ```bash
 LEDGER_SEED=000000000000000000000000Trustee1 \
 REGISTER_NEW_DIDS=True \
-GENESIS_URL=http://localhost:8090/pool_transactions_genesis.txt \
+GENESIS_URL=http://localhost:8090/genesis.txt \
 python3 -m server.server
 ```
 

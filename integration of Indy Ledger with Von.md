@@ -68,7 +68,7 @@ http://localhost:8090/genesis.txt
 ## 🚀 Step 5: Run the VON UI Server
 
 ### 🔹 Option 1: Run in Read-Only Mode
-
+> make sure you are in von-network directory if not then cd ..
 ```bash
 export PORT=9000
 export GENESIS_URL=http://<your-ip>:8090/genesis.txt
